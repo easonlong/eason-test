@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<import resource="classpath:spring/spring-properties-configurer.xml"/>
+	<bean class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>
+				<ref bean="simpleTimerTask"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="simpleTimerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="delay" value="${timer.delay}" />
+		<property name="period" value="${timer.period}" />
+		<property name="timerTask" ref="simpleSchedulerTask" />
+	</bean>
+
+	<bean id="simpleSchedulerTask"
+		class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="runTask" />
+	</bean>
+	<bean id="task" class="com.eason.coding.life.timer.SimpleTimerTask"></bean>
+
+</beans>
