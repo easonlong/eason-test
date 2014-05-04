@@ -12,7 +12,7 @@
 	<repositories>
 		<!-- <repository> <releases> <enabled>true</enabled> </releases> <snapshots> 
 			<enabled>true</enabled> <updatePolicy>never</updatePolicy> </snapshots> <id>central</id> 
-			<url></url> 
+			<url>test</url> 
 			</repository> -->
 	</repositories>
 
