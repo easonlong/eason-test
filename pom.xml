@@ -12,14 +12,14 @@
 	<repositories>
 		<!-- <repository> <releases> <enabled>true</enabled> </releases> <snapshots> 
 			<enabled>true</enabled> <updatePolicy>never</updatePolicy> </snapshots> <id>central</id> 
-			<url>http://tpslnx7d.nam.nsroot.net:8081/nexus/content/groups/bep-dev</url> 
+			<url></url> 
 			</repository> -->
 	</repositories>
 
 	<pluginRepositories>
 		<!-- <pluginRepository> <releases> <updatePolicy>never</updatePolicy> </releases> 
 			<snapshots> <enabled>false</enabled> </snapshots> <id>central</id> <name>Central 
-			Repository</name> <url>http://tpslnx7d.nam.nsroot.net:8081/nexus/content/groups/bep-dev</url> 
+			Repository</name> <url></url> 
 			</pluginRepository> -->
 	</pluginRepositories>
 	<build>
