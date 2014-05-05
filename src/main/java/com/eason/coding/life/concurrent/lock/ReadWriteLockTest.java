@@ -1,8 +1,7 @@
 package com.eason.coding.life.concurrent.lock;
 
 import org.springframework.beans.BeansException;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
+import org.springframework.core.task.TaskExecutor;
 import com.eason.coding.life.ApplicationContextManager;
 
 public class ReadWriteLockTest {
@@ -13,7 +12,7 @@ public class ReadWriteLockTest {
 		try {
 			ReadWriteResource resource = (ReadWriteResource) ApplicationContextManager
 					.getInstance().getBean("readWriteResoure");
-			ThreadPoolTaskExecutor taskExecutor = (ThreadPoolTaskExecutor) ApplicationContextManager
+			TaskExecutor taskExecutor = (TaskExecutor) ApplicationContextManager
 					.getInstance().getBean("defaultTaskExecutor");
 			taskExecutor.execute(new ReadTask(resource));
 			taskExecutor.execute(new WriteTask(resource));
