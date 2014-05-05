@@ -26,7 +26,7 @@ public class ApplicationContextManager implements ApplicationContextAware{
 	}
 	public static void destroy(){
 		if(context!=null){
-			LOGGER.info("destroy the contex.");
+			LOGGER.info("destroy the contex...");
 			context=null;
 			System.exit(1);
 		}

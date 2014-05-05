@@ -12,6 +12,7 @@ public class ReadWriteLockTest {
 
 	public static void main(String[] args) {
 		ApplicationContext context=new ClassPathXmlApplicationContext(APPLICATION_CONTEXT_PATH);
+		
 		try {
 			ReadWriteResource resource = (ReadWriteResource) ApplicationContextManager
 					.getBean("readWriteResoure");
