@@ -1,10 +1,12 @@
 package com.eason.coding.life;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ApplicationContextManager {
+public class ApplicationContextManager implements ApplicationContextAware{
 	private static final Logger LOGGER=Logger.getLogger(ApplicationContextManager.class);
 	private static ApplicationContext context;
 	private static boolean initialized = false;
@@ -28,5 +30,13 @@ public class ApplicationContextManager {
 			context=null;
 			System.exit(1);
 		}
+	}
+	public static Object getBean(String name) throws Exception{
+		return getInstance().getBean(name);
+	}
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext)
+			throws BeansException {
+		this.context = applicationContext;
 	}
 }

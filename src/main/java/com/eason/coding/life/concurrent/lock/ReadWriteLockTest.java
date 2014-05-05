@@ -1,19 +1,22 @@
 package com.eason.coding.life.concurrent.lock;
 
 import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.task.TaskExecutor;
+
 import com.eason.coding.life.ApplicationContextManager;
 
 public class ReadWriteLockTest {
-	private static final String[] APPLICATION_CONTEXT_PATH = { "spring/spring-concurrent-lock.xml" };
+	private static final String[] APPLICATION_CONTEXT_PATH = { "spring/spring-concurrent-lock.xml", "spring/spring-context.xml" };
 
 	public static void main(String[] args) {
-		ApplicationContextManager.init(APPLICATION_CONTEXT_PATH);
+		ApplicationContext context=new ClassPathXmlApplicationContext(APPLICATION_CONTEXT_PATH);
 		try {
 			ReadWriteResource resource = (ReadWriteResource) ApplicationContextManager
-					.getInstance().getBean("readWriteResoure");
+					.getBean("readWriteResoure");
 			TaskExecutor taskExecutor = (TaskExecutor) ApplicationContextManager
-					.getInstance().getBean("defaultTaskExecutor");
+					.getBean("defaultTaskExecutor");
 			taskExecutor.execute(new ReadTask(resource));
 			taskExecutor.execute(new WriteTask(resource));
 			taskExecutor.execute(new ReadTask(resource));
