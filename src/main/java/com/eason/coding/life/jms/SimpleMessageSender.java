@@ -75,7 +75,6 @@ public class SimpleMessageSender {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			// TODO Auto-generated method stub
 
 		}
 
