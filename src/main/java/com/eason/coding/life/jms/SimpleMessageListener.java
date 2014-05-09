@@ -14,12 +14,10 @@ public class SimpleMessageListener implements MessageListener {
 		LOGGER.info(message.toString());
 		LOGGER.info(Thread.currentThread().getName()
 				+ " will sleep 10 seconds.");
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			LOGGER.info("error:", e);
-			e.printStackTrace();
+		for(int i=0; i<10; i++){
+			LOGGER.info(Thread.currentThread().getName()+" "+i);
 		}
+		LOGGER.info(Thread.currentThread().getName()+" is done");
 
 	}
 
