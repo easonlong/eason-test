@@ -47,4 +47,16 @@ public class Person {
 	public String introduceMyself(){
 		return "I am "+getName()+", and I am "+getAge();
 	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode() + name.hashCode()
+				+ birthDate.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return name.equals(obj) && birthDate.equals(obj);
+	}
+	
 }
