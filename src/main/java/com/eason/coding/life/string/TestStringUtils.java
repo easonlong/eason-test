@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TestStringUtils {
     @Test
     public void testSubstringBefore(){
-        String before="CMBX-123456-123456";
+        String before="CMBX-123456-12345678";
         String after=StringUtils.substringBefore(before, "-");
         System.out.println(after);
     }
