@@ -10,4 +10,11 @@ public class TestStringUtils {
         String after=StringUtils.substringBefore(before, "-");
         System.out.println(after);
     }
+    @Test
+    public void testReplaceIfNotExist(){
+        String before="I am Eason.";
+        String after=before.replace("Eason2", "Yaokun");
+        System.out.println(after);     
+             
+    }
 }
