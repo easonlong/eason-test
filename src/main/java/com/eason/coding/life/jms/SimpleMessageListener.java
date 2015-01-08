@@ -8,13 +8,14 @@ import org.apache.log4j.Logger;
 public class SimpleMessageListener implements MessageListener {
 	private static final Logger LOGGER = Logger
 			.getLogger(SimpleMessageListener.class);
-
+	private int involkCount=0;
 	@Override
 	public void onMessage(Message message) {
+		//involkCount=0;
 		LOGGER.info(message.toString());
 		LOGGER.info(Thread.currentThread().getName()
-				+ " will sleep 10 seconds.");
-		for(int i=0; i<10; i++){
+				+ " involk count is "+ ++involkCount);
+		for(int i=0; i<30; i++){
 			LOGGER.info(Thread.currentThread().getName()+" "+i);
 		}
 		LOGGER.info(Thread.currentThread().getName()+" is done");
