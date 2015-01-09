@@ -1,24 +1,40 @@
 package com.eason.coding.life;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 
 public class Test {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
-	  
-        Calendar cal=Calendar.getInstance();
-        cal.setTimeZone(TimeZone.getTimeZone("JST"));
-        Date date1=cal.getTime();
-		System.out.println(date1.toString());
-		cal.setTimeZone(TimeZone.getTimeZone("GMT"));
-		Date date2=cal.getTime();
-		System.out.println(date2.toString());
-		
-	}
-	
+		// TODO Auto-generated method stub
+		//test1();
+		test2();
 
+	}
+
+	public static void test1() {
+		long start = System.currentTimeMillis();
+		for (int i = 0; i < 1000000; i++) {
+			double a = 3.14 * 3.14;
+		}
+
+		for (int j = 0; j < 1000000; j++) {
+			double b = 6.45 * 3.14;
+		}
+		long end = System.currentTimeMillis();
+		System.out.println(end - start);
+	}
+
+	public static void test2() {
+		long start = System.currentTimeMillis();
+		for (int i = 0; i < 1000000; i++) {
+			double a = 3.14 * 3.14;
+			double b = 6.45 * 3.14;
+		}
+
+		long end = System.currentTimeMillis();
+		System.out.println(end - start);
+	}
 
 }

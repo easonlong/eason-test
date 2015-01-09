@@ -9,21 +9,20 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 
 	<bean id="jmsServiceDispatcher" class="org.springframework.jms.listener.DefaultMessageListenerContainer"
 		p:connectionFactory-ref="defaultJmsConnectionFactory" 
-		p:destinationName="${jms.destination}"
+		p:destination-ref="reqQuene"
 		p:messageListener-ref="simpleMessageListener"
 		p:concurrentConsumers="${concurrent.consumers}"
 		p:taskExecutor-ref="defaultTaskExecutor"
-		p:destinationResolver-ref="destinationResolver"
 		/>
 		
 	<bean id="simpleMessageListener" class="com.eason.coding.life.jms.SimpleMessageListener" />
 		
-    <bean id="queueDestination" class="org.springframework.jndi.JndiObjectFactoryBean"
+<!--    <bean id="queueDestination" class="org.springframework.jndi.JndiObjectFactoryBean"
 		p:jndiTemplate-ref="jndiTemplate" 
-		p:jndiName="${jms.destination}" /> 
-<!--	<bean id="reqQuene" class="org.apache.activemq.command.ActiveMQQueue">
+		p:jndiName="${jms.destination}" /> -->
+	<bean id="reqQuene" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg value="${jms.destination}" />
-	</bean>-->
+	</bean>
 	<bean id="destinationResolver" class="org.springframework.jms.support.destination.JndiDestinationResolver"
             p:jndiTemplate-ref="jndiTemplate"
             p:cache="true"
