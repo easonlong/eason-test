@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
-
-	<bean id="Server" class="org.eclipse.jetty.server.Server" init-method="start" destroy-method="stop">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:context=""
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:component-scan base-package="com.**" />
+	<bean id="Server" class="org.eclipse.jetty.server.Server"
+		init-method="start" destroy-method="stop">
 		<property name="connectors">
 			<list>
 				<bean id="Connector" class="org.eclipse.jetty.server.nio.SelectChannelConnector">
@@ -13,14 +16,23 @@
 		</property>
 
 		<property name="handler">
-			<bean id="handlers" class="org.eclipse.jetty.server.handler.HandlerList">
-				<property name="handlers">
-					<list>
-						<bean class="com.eason.coding.life.jetty.SimpleHandler" />
-						<bean class="org.eclipse.jetty.server.handler.DefaultHandler" />
-					</list>
-				</property>
-			</bean>
+			<ref bean="context" />
 		</property>
+	</bean>
+
+	<bean id="handlers" class="org.eclipse.jetty.server.handler.HandlerList">
+		<property name="handlers">
+			<list>
+				<bean class="com.eason.coding.life.jetty.SimpleHandler" />
+				<bean class="org.eclipse.jetty.server.handler.DefaultHandler" />
+			</list>
+		</property>
+	</bean>
+	<bean id="context" class="org.eclipse.jetty.webapp.WebAppContext">
+		<property name="contextPath" value="/" />
+		<property name="resourceBase" value="src/main/webapp" />
+		<property name="logUrlOnStart" value="true" />
+		<property name="parentLoaderPriority" value="true" />
+	<!--  <property name="descriptor" value="src/webapp/WEB-INF/web.xml" />-->	
 	</bean>
 </beans>
