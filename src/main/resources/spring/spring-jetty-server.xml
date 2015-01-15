@@ -32,5 +32,7 @@
 		<property name="contextPath" value="/" />
 		<property name="resourceBase" value="src/main/webapp" />
 		<property name="logUrlOnStart" value="true" />
+		<property name="parentLoaderPriority" value="true" />
+	<!--  <property name="descriptor" value="src/webapp/WEB-INF/web.xml" />-->	
 	</bean>
 </beans>
