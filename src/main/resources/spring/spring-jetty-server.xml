@@ -30,9 +30,12 @@
 	</bean>
 	<bean id="context" class="org.eclipse.jetty.webapp.WebAppContext">
 		<property name="contextPath" value="/" />
+		<!-- the root dir for the web app -->
 		<property name="resourceBase" value="src/main/webapp" />
 		<property name="logUrlOnStart" value="true" />
+		<!-- if parentLoaderPriority=true then use the parent class loader -->
 		<property name="parentLoaderPriority" value="true" />
-	<!--  <property name="descriptor" value="src/webapp/WEB-INF/web.xml" />-->	
+		<!-- the descriptor is not necessary -->
+	 	<property name="descriptor" value="src/webapp/WEB-INF/web.xml" />	
 	</bean>
 </beans>
