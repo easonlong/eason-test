@@ -7,7 +7,7 @@ public class JsonTest {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name", "Eason");
 		jsonObject.put("age", 12);
-		System.out.println(jsonObject.toString());
+		System.out.println(jsonObject.getString("ff"));
 		
 		String jsonString="{\"name\":\"Eason\",\"age\":12}";
 		JSONObject jsonObject2=JSONObject.fromObject(jsonString);

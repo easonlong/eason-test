@@ -9,7 +9,10 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//test1();
-		test2();
+		//test3();
+		long a=1;
+		long b=3;
+		System.out.println((double)(a)/b);
 
 	}
 
@@ -35,6 +38,13 @@ public class Test {
 
 		long end = System.currentTimeMillis();
 		System.out.println(end - start);
+	}
+	
+	public static void test3(){
+		String string="abcd";
+		
+		System.out.println(string.substring(0,string.indexOf("=")));
+		System.out.println(string.substring(string.indexOf("=")+1));
 	}
 
 }
