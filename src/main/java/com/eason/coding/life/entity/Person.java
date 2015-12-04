@@ -7,6 +7,9 @@ public class Person {
 	private Calendar birthDate;
 	private Life life;
 	
+	public Person() {
+		super();
+	}
 	public Person(String name, Calendar birthDate) {
 		this.name = name;
 		this.birthDate = birthDate;
