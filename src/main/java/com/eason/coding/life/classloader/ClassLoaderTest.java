@@ -10,7 +10,7 @@ import com.eason.coding.life.entity.Person;
 public class ClassLoaderTest {
 
 	public static void main(String[] args) throws Exception {
-		MyClassLoader classLoader = new MyClassLoader();
+		MyClassLoader classLoader = new MyClassLoader(ClassLoader.getSystemClassLoader());
 		Class<Person> clazz = (Class<Person>) classLoader.loadClass("com.eason.coding.life.entity.Person");
 		Object person = clazz.newInstance();
 		Method setName = clazz.getMethod("setName", String.class);
