@@ -1,22 +1,22 @@
 package com.eason.coding.life.classloader;
 
 import java.lang.reflect.Method;
-import java.util.Calendar;
-
-import org.apache.commons.lang.builder.ToStringBuilder;
-
-import com.eason.coding.life.entity.Person;
 
 public class ClassLoaderTest {
 
 	public static void main(String[] args) throws Exception {
-		MyClassLoader classLoader = new MyClassLoader(ClassLoader.getSystemClassLoader());
-		Class<Person> clazz = (Class<Person>) classLoader.loadClass("com.eason.coding.life.entity.Person");
-		Object person = clazz.newInstance();
-		Method setName = clazz.getMethod("setName", String.class);
-		Method setBirthDate = clazz.getMethod("setBirthDate", Calendar.class);
-		setName.invoke(person, new Object[] { "Eason" });
-		setBirthDate.invoke(person, new Object[] { Calendar.getInstance() });
-		System.out.println(ToStringBuilder.reflectionToString(person));
+
+		final MyClassLoader classLoader = new MyClassLoader();
+		Thread.currentThread().setContextClassLoader(classLoader);
+		System.out.println("Main class loader:" + ClassLoaderTest.class.getClassLoader());
+		System.out.println("Main thread context class loader:" + Thread.currentThread().getContextClassLoader());
+		Class clazz = classLoader.loadClass("com.eason.coding.life.classloader.MyThread");
+		Object thread = clazz.newInstance();
+		Method setClassLoader = clazz.getMethod("setClassLoader", ClassLoader.class);
+		setClassLoader.invoke(thread, new Object[] { classLoader });
+		Method start = clazz.getMethod("start");
+		start.invoke(thread, new Object[] {});
+
 	}
+
 }
