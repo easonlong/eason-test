@@ -7,7 +7,6 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd  
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	<aop:aspectj-autoproxy proxy-target-class="false" />
-	<bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" />
 
 	<bean id="loggerAspect" class="com.eason.coding.life.aop.LoggerAspect" />
 	<bean id="service" class="com.eason.coding.life.aop.SimpleService"></bean>
