@@ -15,7 +15,7 @@ public class CountdownLatchTest {
 		new Thread(new SubTask()).start();
 		new Thread(new SubTask()).start();
 		startLatch.countDown();// Begin to execute tasks
-		endLatch.await();// wait until all the tasks been executed
+		endLatch.await();// wait until all the tasks been executed 
 		System.out.println("All tasks are finished");
 	}
 
