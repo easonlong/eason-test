@@ -20,7 +20,8 @@ public class CompleteService {
 		executorService.submit(new FutureTask(false));
 		executorService.take().get();
 		executorService.take().get();
-		executorService.take().get();
+		//由于只提交了两个任务，所以这行会一直阻塞
+		//executorService.take().get();
 		System.out.println("end");
 	}
 

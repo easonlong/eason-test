@@ -7,7 +7,7 @@
 	<name>eason-test</name>
 	<description>eason's coding life</description>
 	<properties>
-		<spring-version>3.0.5.RELEASE</spring-version>
+		<spring-version>4.2.5.RELEASE</spring-version>
 		<fasterxml.version>2.7.4</fasterxml.version>
 	</properties>
 	<repositories>
