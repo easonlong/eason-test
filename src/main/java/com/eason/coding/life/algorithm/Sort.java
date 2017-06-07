@@ -2,6 +2,7 @@ package com.eason.coding.life.algorithm;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang.time.StopWatch;
 
 /**
  * Created by longyaokun on 2017/6/5.
@@ -35,9 +36,17 @@ public abstract class Sort {
 
     public void test() {
         int[] a = array(1000);
+        test(a);
+    }
+
+    public void test(int[] a) {
+        StopWatch watch = new StopWatch();
+        watch.start();
         sort(a);
+        watch.stop();
+        System.out.println(this.getClass().getSimpleName() + ".sort() cost:" + watch.getTime() + " ms");
         System.out.println(verify(a));
-        System.out.println(ToStringBuilder.reflectionToString(a));
+        //System.out.println(ToStringBuilder.reflectionToString(a));
     }
 
 
